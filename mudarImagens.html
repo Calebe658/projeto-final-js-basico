@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cssMudarImagens.css">
+</head>
+
+<body>
+    <header>
+        <h1>Brincadeira com imagens</h1>
+    </header>
+
+    <main>
+        <div id="divImagens">
+            <img src="imagens/imagem0.jpg" alt="" id="tela">
+        </div>
+
+        <div id="divBotoes">
+            <button onclick="anterior()">Imagem anterior</button>
+            <button onclick="diminuir()">Diminuir imagem</button>
+            <button onclick="alterarImagem()">Mostar/Ocultar</button>
+            <button onclick="aumentar()">Aumentar imagem</button>
+            <button onclick="proximo()">Próxima imagem</button>
+        </div>
+
+
+    </main>
+
+    <nav>
+        <a href="formulario..html">1</a>
+        <a href="carrosselImagens.html">2</a>
+        <a href="perguntasRespostas.html">3</a>
+        <a href="mudarImagens.html">4</a>
+    </nav>
+
+    <script>
+        var indice = 0;
+        var imagens = [];
+
+        imagens.push("imagens/imagem0.jpg");
+        imagens.push("imagens/imagem1.jpg");
+        imagens.push("imagens/imagem2.webp");
+        imagens.push("imagens/imagem3.jpg");
+        imagens.push("imagens/imagem4.webp");
+
+        function proximo() {
+            indice++;
+
+            if (indice == imagens.length) {
+                indice = 0;
+            }
+
+            document.getElementById("tela").src = imagens[indice];
+        }
+
+        function anterior() {
+            indice--;
+
+            if (indice < 0) {
+                indice = imagens.length - 1;
+            }
+
+            document.getElementById("tela").src = imagens[indice];
+        }
+
+        function alterarImagem() {
+            var img = document.getElementById("tela"); // recebe todo o conteúdo da img
+            console.log(img);
+
+            if (img.style.display == "none") {
+                img.style.display = "block"; // mostra a imagem
+
+            } else {
+                img.style.display = "none"; // remove a imagem
+            }
+        }
+
+        function aumentar() {
+            var aumentarLargura = document.getElementById("tela").width;
+            var aumentarAltura = document.getElementById("tela").height;
+
+            document.getElementById("tela").style.width = aumentarLargura + 20 + "px";
+            document.getElementById("tela").style.height = aumentarAltura + 20 + "px";
+
+        }
+
+        function diminuir() {
+            var diminuirLargura = document.getElementById("tela").width;
+            var diminuirAltura = document.getElementById("tela").height;
+
+            document.getElementById("tela").style.width = diminuirLargura + -20 + "px";
+            document.getElementById("tela").style.height = diminuirAltura + -20 + "px";
+        }
+    </script>
+</body>
+
+</html>

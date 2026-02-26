@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cssFormulario.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            FORMULÁRIO:
+        </h1>
+    </header>
+
+    <main>
+        <div id="divMain">
+            <div>
+                <label for="name">
+                    <b>Nome:</b>
+                </label>
+                <input type="text" name="name" id="nome" onblur="verificarNome()">
+
+                <p id="erroNome"></p>
+            </div>
+
+            <div>
+                <label for="sobname">
+                    <b>Sobrenome:</b>
+                </label>
+                <input type="text" name="sobname" id="sobrenome" onblur="verificarSobrenome()">
+
+                <p id="erroSobrenome"></p>
+            </div>
+
+            <div>
+                <label for="age">
+                    <b>Idade:</b>
+                </label>
+                <input type="number" name="age" id="idade" onblur="verificarIdade()">
+
+                <p id="erroIdade"></p>
+            </div>
+
+            <div>
+                <label for="CPF">
+                    <b>CPF:</b>
+                </label>
+                <input type="text" name="CPF" id="cpf" onblur="verificarCpf()">
+
+                <p id="erroCpf"></p>
+            </div>
+
+            <div>
+                <label for="cell">
+                    <b>Celular:</b>
+                </label>
+                <input type="tel" name="cell" id="celular" onblur="verificarCelular()">
+
+                <p id="erroCelular"></p>
+            </div>
+
+            <div>
+                <label for="Endereço">
+                    <b>Endereço:</b>
+                </label>
+                <input type="text" name="Endereço" id="endereco" onblur="verificarEndereco()">
+
+                <p id="erroEndereco"></p>
+            </div>
+
+            <div>
+                <label for="Complemento">
+                    <b>Complemento:</b>
+                </label>
+                <input type="text" name="Complemento" id="complemento" onblur="verificarComplemento()">
+
+                <p id="erroComplemento"></p>
+            </div>
+
+            <div>
+                <label for="Gmail">
+                    <b>Gmail:</b>
+                </label>
+                <input type="email" name="Gmail" id="gmail" onblur="verificarGmail()">
+
+                <p id="erroGmail"></p>
+            </div>
+
+            <div>
+                <label for="Senha">
+                    <b>Senha:</b>
+                </label>
+                <input type="password" name="Senha" id="senha" onblur="verificarSenha()"> <button
+                    onclick="alterarSenha()" id="botaoSenha"><img src="imagens/olho.png" alt="" id="imgOlho"></button>
+
+                <p id="erroSenha"></p>
+            </div>
+
+            <br> <br>
+            <button><a href="carrosselImagens.html">Próxima Página</a></button>
+        </div>
+    </main>
+
+    <script>
+        function verificarNome() {
+            var nome = document.getElementById("nome").value;
+
+            if (nome == "") { // Erro por estar nulo
+                document.getElementById("erroNome").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("nome").style.border = "2px solid red";
+
+            } else { // Apaga por estar certo
+                document.getElementById("erroNome").innerHTML = "";
+                document.getElementById("nome").style.border = "2px solid green";
+            }
+        }
+
+        function verificarSobrenome() {
+            var sobrenome = document.getElementById("sobrenome").value;
+
+            if (sobrenome == "") { // Erro por estar nulo
+                document.getElementById("erroSobrenome").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("sobrenome").className = "erro";
+
+            } else { // Apaga por estar certo
+                document.getElementById("erroSobrenome").innerHTML = "";
+                document.getElementById("sobrenome").className = "acerto";
+            }
+        }
+
+        function verificarIdade() {
+            var idade = document.getElementById("idade").value;
+
+            if (idade == "") { // Erro por estar nulo
+                document.getElementById("erroIdade").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("idade").className = "erro";
+
+            } else {
+                var idade2 = parseInt(idade);
+
+                if (idade2 < 0) { // Erro por ser negativo
+                    document.getElementById("erroIdade").innerHTML = "Erro: idade negativa";
+                    document.getElementById("idade").className = "erro";
+
+                } else {
+                    if (idade2 > 130) { // Erro por ter uma idade além da possível
+                        document.getElementById("erroIdade").innerHTML = "Erro: limite de idade excedido";
+                        document.getElementById("idade").className = "erro";
+
+                    } else { // Apaga por estar certo
+                        document.getElementById("erroIdade").innerHTML = "";
+                        document.getElementById("idade").className = "acerto";
+                    }
+                }
+            }
+        }
+
+        function verificarCpf() {
+            var cpf = document.getElementById("cpf").value;
+
+            if (cpf == "") { // Erro por estar nulo
+                document.getElementById("erroCpf").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("cpf").className = "erro";
+
+            } else { // Apaga por estar certo
+                document.getElementById("erroCpf").innerHTML = "";
+                document.getElementById("cpf").className = "acerto";
+            }
+        }
+
+        function verificarCelular() {
+            var celular = document.getElementById("celular").value;
+
+            if (celular == "") {
+                document.getElementById("erroCelular").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("celular").className = "erro";
+
+            } else {
+                document.getElementById("erroCelular").innerHTML = "";
+                document.getElementById("celular").className = "acerto";
+            }
+        }
+
+        function verificarEndereco() {
+            var endereco = document.getElementById("endereco").value;
+
+            if (endereco == "") { // Erro por estar nulo
+                document.getElementById("erroEndereco").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("endereco").className = "erro";
+
+            } else { // Apaga por estar certo
+                document.getElementById("erroEndereco").innerHTML = "";
+                document.getElementById("endereco").className = "acerto";
+            }
+        }
+
+        function verificarComplemento() {
+            var complemento = document.getElementById("complemento").value;
+
+            if (complemento == "") { // Erro por estar nulo
+                document.getElementById("erroComplemento").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("complemento").className = "erro";
+
+            } else {
+                document.getElementById("erroComplemento").innerHTML = "";
+                document.getElementById("complemento").className = "acerto";
+            }
+        }
+
+        function verificarGmail() {
+            var gmail = document.getElementById("gmail").value;
+
+            if (gmail == "") { // Erro por estar nulo
+                document.getElementById("erroGmail").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("gmail").className = "erro";
+
+            } else { // Apaga por estar certo
+                document.getElementById("erroGmail").innerHTML = "";
+                document.getElementById("gmail").className = "acerto";
+            }
+        }
+
+        function verificarSenha() {
+            var senha = document.getElementById("senha").value;
+
+            if (senha == "") { // Erro por estar nulo
+                document.getElementById("erroSenha").innerHTML = "Erro: campo não preenchido";
+                document.getElementById("senha").className = "erro";
+
+            } else { // Apaga por estar certo
+                document.getElementById("erroSenha").innerHTML = "";
+                document.getElementById("senha").className = "acerto";
+            }
+        }
+
+        function alterarSenha() {
+
+            var senha = document.getElementById("senha").type;
+
+            if (senha == "password") {
+                document.getElementById("senha").type = "text";
+            } else {
+                document.getElementById("senha").type = "password";
+            }
+        }
+    </script>
+</body>
+
+</html>

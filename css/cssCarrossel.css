@@ -1,0 +1,99 @@
+body {
+    background-color: wheat;
+}
+
+header {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 200px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 30px;
+}
+
+div>p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#tela0 {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin-left: 230px;
+    margin-bottom: 80px;
+}
+
+#tela1 {
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    margin-top: 50px;
+}
+
+#tela2 {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 80px;
+}
+
+button {
+    margin-top: 20px;
+    margin-left: 5px;
+    height: 30px;
+    width: 60px;
+}
+
+main {
+    background-color: white;
+    width: 1200px;
+    height: 600px;
+    margin-left: 350px;
+    border-radius: 50px;
+}
+
+main>p {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+main>div {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0px;
+    padding: 20px;
+}
+
+img {
+    transition: 1s;
+    border-radius: 10px;
+}
+
+nav {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    background-color: rgb(255, 216, 145);
+}
+
+a {
+    font-size: 30px;
+    margin-left: 20px;
+}

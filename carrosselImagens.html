@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cssCarrossel.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Carrossel de imagens
+        </h1>
+    </header>
+
+    <main>
+        <p>As 7 maravilhas do mundo</p>
+        <div>
+            <img src="imagens/6imagem.jpeg" alt="" id="tela0">
+        </div>
+
+        <div>
+            <img src="imagens/0imagem.jpeg" alt="" id="tela1">
+
+            <div>
+                <p id="paragrafo"></p>
+
+                <button onclick="anterior()">Anterior</button>
+                <button onclick="proximo()">Próximo</button>
+            </div>
+        </div>
+
+        <div>
+            <img src="imagens/1imagem.webp" alt="" id="tela2">
+        </div>
+    </main>
+
+    <nav>
+        <a href="formulario..html">1</a>
+
+        <a href="carrosselImagens.html">2</a>
+
+        <a href="perguntasRespostas.html">3</a>
+
+        <a href="mudarImagens.html">4</a>
+    </nav>
+
+    <script>
+        var indice = 0;
+        var imagens = [];// criar um vetor vazio
+        var texto = [];
+
+        imagens.push("imagens/0imagem.jpeg");
+        imagens.push("imagens/1imagem.webp");
+        imagens.push("imagens/2imagem.webp");
+        imagens.push("imagens/3imagem.jpg");
+        imagens.push("imagens/4imagem.jpg");
+        imagens.push("imagens/5imagem.jpg");
+        imagens.push("imagens/6imagem.jpeg");
+
+        texto.push("Grande Muralha da China (China)");
+        texto.push("Cristo Redentor (Brasil)");
+        texto.push("Machu Picchu (Peru)");
+        texto.push("Chichén Itzá (México)");
+        texto.push("Coliseu (Itália)");
+        texto.push("Petra (Jordânia)");
+        texto.push("Taj Mahal (Índia)");
+
+        document.getElementById("paragrafo").innerHTML = texto[0];
+
+        function proximo() {
+
+            // TELA DO MEIO
+
+            indice++; // começa em 0 e passa a ser 1 depois daqui
+
+            if (indice == imagens.length) {
+                indice = 0;
+            }
+
+            document.getElementById("tela1").src = imagens[indice];
+            document.getElementById("tela1").style.boxShadow = "5px 5px 5px black";
+
+            // TROCAR TEXTO
+
+            document.getElementById("paragrafo").innerHTML = texto[indice];
+
+            // TELA ESQUERDA
+
+            var indiceEsquerda = indice - 1; // começa com indice 1 e passa a ser 0 depois de clicar próximo
+
+            if (indiceEsquerda < 0) { // quando o indice chegar a - 1
+                indiceEsquerda = imagens.length - 1; // pega o valor da array (nessa caso 5) e subtrair 1
+            }
+
+            document.getElementById("tela0").src = imagens[indiceEsquerda];
+            document.getElementById("tela0").style.boxShadow = "3px 3px 3px black";
+
+            // TELA DIREITA
+
+            var indiceDireita = indice + 1; // começa com 1 e passa a ser 2 depois de clicar próximo
+
+            if (indiceDireita == imagens.length) {
+                indiceDireita = 0;
+            }
+
+            document.getElementById("tela2").src = imagens[indiceDireita];
+            document.getElementById("tela2").style.boxShadow = "3px 3px 3px black";
+        }
+
+        function anterior() {
+
+            // TELA DO MEIO
+
+            indice--; // começa com o indice 0 e passa a ser - 1 depois de clicar anterior
+
+            if (indice < 0) {
+                indice = imagens.length - 1;
+            }
+
+            document.getElementById("tela1").src = imagens[indice];
+            document.getElementById("tela1").style.boxShadow = "3px 3px 3px black";
+
+            // TROCAR TEXTO
+
+            document.getElementById("paragrafo").innerHTML = texto[indice];
+
+            // TELA ESQUERDA 
+
+            var indiceEsquerda = indice - 1; // começa com 4 e depois de clicar em anterior passa a ser 3
+
+            if (indiceEsquerda < 0) {
+                indiceEsquerda = imagens.length - 1;
+            }
+
+            document.getElementById("tela0").src = imagens[indiceEsquerda];
+            document.getElementById("tela0").style.boxShadow = "3px 3px 3px black";
+
+            // TELA DIREITA
+
+            var indiceDireita = indice + 1;
+
+            if (indiceDireita == imagens.length) {
+                indiceDireita = 0;
+            }
+
+            document.getElementById("tela2").src = imagens[indiceDireita];
+            document.getElementById("tela2").style.boxShadow = "3px 3px 3px black";
+        }
+
+    </script>
+</body>
+
+</html>
